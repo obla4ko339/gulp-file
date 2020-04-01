@@ -7,10 +7,44 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <h1>Hello</h1>
+    <div>
+        <h1>
+            Задача 2
+        </h1>
+    </div>
 
-    <h1>Taaaak</h1>
+        <form action="#" method="post">
+            <div>
+                <div>
+                    <label for="nameId">Name</label>
+                    <input type="text" name="name" id="nameId">
+                </div>
+                <div>
+                    <label for="status">Status</label>
+                    <select name="status" id="status">
+                        <option value="Черновик">Черновик</option>
+                        <option value="Проверено">Проверено</option>
+                        <option value="Утверждено">Утверждено</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="assign">Согласие на обработку персональных данных</label>
+                    <div>
+                        <div>
+                            <label for="id_1_assign">Да</label>
+                            <input type="radio" name="assignData" value="Yes" id="id_1_assign"></div>
+                        <div>
+                            <label for="id_0_assign">Нет</label>
+                            <input type="radio" name="assignData" value="No" id="assign">
+                        </div>    
+                    </div>      
+                    
+                </div>
+            </div>
+        </form>
 
-    <h1>d</h1>
+
 </body>
+
+<script src="./js/common.js"></script>
 </html>

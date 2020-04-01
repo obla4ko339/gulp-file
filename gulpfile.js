@@ -6,6 +6,11 @@ let uglify = require('gulp-uglifyjs')
 let imagemin = require('gulp-imagemin')
 let pngquant = require('imagemin-pngquant')
 let cache = require("gulp-cache")
+let ts = require("gulp-typescript")
+
+const webpack = require("webpack")
+const webpackStream = require("webpack-stream")
+const webpackConfig = require("./webpack.config.js")
 
 
 
@@ -47,9 +52,24 @@ gulp.task("img", ()=>{
         .pipe(gulp.dest("dist/img"))
 })
 
+gulp.task('js', ()=>{
+    return gulp.src("app/js/index.js")
+        .pipe(webpackStream(webpackConfig), webpack)
+        .pipe(gulp.dest('dist/js'))
+})
 
 
-gulp.task("watch",['sass','browserSync', 'scripts' ], ()=>{
+gulp.task("ts", ()=>{
+    return gulp.src("app/ts/**/*.ts")
+        .pipe(ts({
+            noImplicitAny:true,
+            outFile:'output.js'
+        }))
+        .pipe(gulp.dest("dist/js"))
+})
+
+
+gulp.task("watch",['sass','browserSync','js' ], ()=>{
     gulp.watch("app/sass/**/*.sass", ['sass'])
     gulp.watch("app/*.html", browserSync.reload)
     gulp.watch(["app/js/common.js", 'app/libs/**/*.js'], browserSync.reload)
@@ -57,7 +77,7 @@ gulp.task("watch",['sass','browserSync', 'scripts' ], ()=>{
 
 
 
-gulp.task("build", ['img','sass', 'scripts' ], ()=>{
+gulp.task("build", ['img','sass', 'js' ], ()=>{
 
     gulp.src("app/css/main.css")
         .pipe(gulp.dest('dist/css'))
