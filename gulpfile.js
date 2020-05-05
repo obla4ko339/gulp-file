@@ -53,7 +53,7 @@ gulp.task("img", ()=>{
 })
 
 gulp.task('js', ()=>{
-    return gulp.src("app/js/index.js")
+    return gulp.src("app/js/**/*.ts")
         .pipe(webpackStream(webpackConfig), webpack)
         .pipe(gulp.dest('dist/js'))
 })

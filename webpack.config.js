@@ -2,17 +2,16 @@ module.exports = {
     output: {
         filename:'bundle.js'
     },
+    resolve:{
+        extensions:['.ts','.js','.json']
+    },
     module:{
         rules:[
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js|jsx|ts)$/,
                 exclude: /(node_modules)/,
-                loader:'babel-loader',
-                query:{
-                    presets:[
-                        ['latest', { modules: false }],
-                    ]
-                }
+                loader:'ts-loader'
+                
             }
         ]
     }
