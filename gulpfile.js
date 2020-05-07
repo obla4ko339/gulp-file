@@ -15,7 +15,7 @@ const webpackConfig = require("./webpack.config.js")
 
 
 gulp.task("sass", ()=>{
-    return gulp.src("app/sass/main.sass")
+    return gulp.src("app/scss/**/*.scss")
             .pipe(sass())
             .pipe(gulp.dest("app/css"))
             .pipe(browserSync.reload({stream:true}))

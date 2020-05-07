@@ -6,6 +6,9 @@ const serviceItem:HTMLCollection = document.getElementsByClassName("serviceItem"
 const btnRequest:HTMLFormElement = document.getElementById("btnRequest") as HTMLFormElement
 const formRequest:HTMLElement = document.getElementById("formRequest") as HTMLElement
 const resultRequest:HTMLSpanElement = document.getElementById("resultRequest") as HTMLSpanElement
+const nameEuphoria:HTMLFormElement = document.getElementById("nameEuphoria") as HTMLFormElement
+const emailEuphoria:HTMLFormElement = document.getElementById("emailEuphoria") as HTMLFormElement
+const telEuphoria:HTMLFormElement = document.getElementById("telEuphoria") as HTMLFormElement
 
 export {
     euphoriaShow,
@@ -15,5 +18,8 @@ export {
     serviceItem,
     btnRequest,
     formRequest,
-    resultRequest
+    resultRequest,
+    nameEuphoria,
+    emailEuphoria,
+    telEuphoria
 }
